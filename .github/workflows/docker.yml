@@ -5,20 +5,15 @@
 
 name: Create and publish a Docker image
 
-# on:
-#   push:
-#     branches: ['main']
-
 on:
   push:
     branches:
-      - 'master'
       - 'main'
     tags:
       - 'v*'
   pull_request:
     branches:
-      - 'master'
+      - 'main'
 
 env:
   REGISTRY: ghcr.io
