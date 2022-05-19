@@ -58,7 +58,6 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
             type=schedule
             type=ref,event=branch
             type=ref,event=pr
@@ -66,6 +65,8 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
             type=sha
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
