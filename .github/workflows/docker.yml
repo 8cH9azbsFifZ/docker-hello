@@ -13,6 +13,8 @@ on:
 
     tags:
       - 'v*'
+      - 'v*.*'
+      - 'v*.*.*'
   pull_request:
     branches:
       - 'main'
